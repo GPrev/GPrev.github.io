@@ -49,7 +49,7 @@ export default {
   components: { ProjectOverview },
   async asyncData ({ $content }) {
     const projects = await $content('project-overview')
-      .only(['title', 'description', 'img', 'alt', 'date'])
+      .only(['title', 'description', 'img', 'alt', 'date', 'video'])
       .sortBy('date', 'asc')
       .fetch()
 

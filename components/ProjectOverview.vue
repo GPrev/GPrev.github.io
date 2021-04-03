@@ -1,13 +1,22 @@
 <template>
   <div class="project-overview">
-    <img
-      class="project-picture"
-      :src="require(`~/assets/images/${project.img}`)"
-      :alt="project.alt"
+    <video
+      class="project-video"
+      v-if="project.video"
+      :src="require(`~/assets/video/${project.video}`)"
+      autoplay
+      loop
     />
-    <div class="project-details">
-      <h3 class="project-title">{{ project.title }}</h3>
-      <p class="project-description">{{ project.description }}</p>
+    <div class="project-overview-bottom">
+      <img
+        class="project-picture"
+        :src="require(`~/assets/images/${project.img}`)"
+        :alt="project.alt"
+      />
+      <div class="project-details">
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-description">{{ project.description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -23,7 +32,15 @@ export default {
   border: solid 1px rgba(var(--secondary-rgb), 0.5);
   background-color: rgba(var(--secondary-rgb), 0.1);
   display: flex;
+  flex-direction: column;
+}
+.project-overview-bottom {
+  display: flex;
   flex-direction: row;
+}
+
+.project-video {
+  margin-bottom: 1em;
 }
 
 .project-picture {
