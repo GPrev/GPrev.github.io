@@ -1,34 +1,73 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">gprev-portfolio</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <div class="container">
+      <div>
+        <Logo />
+        <h1 class="title">gprev-portfolio</h1>
+        <div class="links">
+          <a
+            href="https://nuxtjs.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button--green"
+          >
+            Documentation
+          </a>
+          <a
+            href="https://github.com/nuxt/nuxt.js"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button--grey"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container project-overview-container">
+      <div
+        v-for="(projects, date) in projectsGrouped"
+        :key="date"
+      >
+        <date-separator :date="date" />
+        <project-overview
+          class="project-overview-item"
+          v-for="project in projects"
+          :project="project"
+          :key="project.slug"
+        />
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
+import ProjectOverview from "~/components/ProjectOverview.vue"
 
-export default Vue.extend({})
+export default {
+  components: { ProjectOverview },
+  async asyncData ({ $content }) {
+    const projects = await $content('project-overview')
+      .only(['title', 'description', 'img', 'alt', 'date'])
+      .sortBy('date', 'asc')
+      .fetch()
+
+    const groupBy = function (xs, key) {
+      return xs.reduce(function (rv, x) {
+        (rv[x[key]] = rv[x[key]] || []).push(x);
+        return rv;
+      }, {});
+    };
+
+    const projectsGrouped = groupBy(projects, 'date')
+
+    console.log(projectsGrouped)
+
+    return {
+      projectsGrouped
+    }
+  },
+}
 </script>
 
 <style>
@@ -61,5 +100,16 @@ export default Vue.extend({})
 
 .links {
   padding-top: 15px;
+}
+
+.project-overview-container {
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 800px;
+}
+
+.project-overview-item {
+  margin: 1em;
+  padding: 1em;
 }
 </style>
