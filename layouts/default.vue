@@ -52,4 +52,14 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+:root {
+  --primary-dark: #35495e;
+  --primary-medium: #2f495e;
+  --secondary-dark: #3b8070;
+  --secondary-light: #00c58e;
+
+  --primary-rgb: 47, 73, 94;
+  --secondary-rgb: 59, 128, 112;
+}
 </style>

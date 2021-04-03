@@ -26,8 +26,9 @@
     </div>
     <div class="container project-overview-container">
       <div
-        v-for="(projects, date) in projectsGrouped"
+        v-for="(projects, date, idx) in projectsGrouped"
         :key="date"
+        :style='"order: -"+idx'
       >
         <date-separator :date="date" />
         <project-overview
@@ -60,8 +61,6 @@ export default {
     };
 
     const projectsGrouped = groupBy(projects, 'date')
-
-    console.log(projectsGrouped)
 
     return {
       projectsGrouped
