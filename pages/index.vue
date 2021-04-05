@@ -44,13 +44,8 @@ import ProjectOverview from "~/components/ProjectOverview.vue"
 export default {
   components: { ProjectOverview },
 
-  // data () {
-  //   return { project: null }
-  // },
-
   async asyncData ({ $content }) {
     const projects = await $content('project-overview')
-      //.only(['title', 'description', 'img', 'alt', 'date', 'video'])
       .sortBy('date', 'asc')
       .fetch()
 
