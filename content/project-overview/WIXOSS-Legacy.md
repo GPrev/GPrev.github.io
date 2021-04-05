@@ -1,6 +1,6 @@
 ---
 title: WIXOSS-Legacy
-description: This project consists in the implementation of a physical, obscure card game in Unity. The core of the game is finished, although a little unpolished. Few cards were added in(just enough to play a game), but the addition of new cards is possible without modifying the game thanks to XML files.
+description: This project consists in the implementation of a physical, obscure card game in Unity. The core of the game is finished, although a little unpolished. Few cards were added in (just enough to play a game), but the addition of new cards is possible without modifying the game thanks to XML files.
 icon: Unity.jpg
 alt: WIXOSS-Legacy
 date: 2019

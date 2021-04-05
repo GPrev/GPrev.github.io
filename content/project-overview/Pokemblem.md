@@ -1,6 +1,6 @@
 ---
 title: Pokemblem
-description: This project is a game inspired by Pokemon and FIre Emblem. It is a tactical RPG, played on an orthogonal grid. A first level, complete with cutscenes and a tutorial, was developed.
+description: This project is a game inspired by Pokemon and Fire Emblem. It is a tactical RPG, played on an orthogonal grid. A first level, complete with cutscenes and a tutorial, was developed.
 icon: MonoGame_Logo.png
 alt: Pokemblem
 date: 2017

@@ -1,6 +1,6 @@
 ---
 title: RedHead
-description: As a continuation of Evol-IA, this project aimed to play a full game of Pokemon Red using a combination of different algorithms. The AI was connected to an emulator using a TCP connexion, and could expore the world and battle. The project is unfinished as the AI cannot do some specific tasks required to complete the game.
+description: As a continuation of Evol-IA, this project's aim was to play a full game of Pokemon Red using a combination of different algorithms. The AI is connected to an emulator using a TCP connexion, and can expore the world and battle. The project is unfinished as the AI cannot do some specific tasks required to complete the game, such as buying lemonade.
 icon: pokeball.png
 alt: RedHead
 date: 2018

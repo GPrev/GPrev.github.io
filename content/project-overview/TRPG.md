@@ -1,6 +1,6 @@
 ---
 title: TRPG
-description: This project started during my last summer vacation as a student, when I decided to work full time on a game. I decided to create a tactical RPG, but I never finished it as I severely underestimated the cost of drawing everything by myself. Still, a test level is playable with a single type of character.
+description: This project started during my last summer vacation as a student, when I decided to work full time on a game for a month. I decided to create a tactical RPG, but I never finished it as I severely underestimated the cost of drawing everything by myself. Still, a test level is playable with a single type of character.
 icon: SFML_Logo.png
 alt: TRPG
 date: 2014
