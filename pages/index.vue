@@ -101,6 +101,8 @@ export default {
     },
 
     initBackgroundChangeTriggers () {
+      const divBody = document.getElementsByClassName("div-body")[0];
+
       const projectComponents = this.$refs.poi
       const page = this
 
@@ -112,8 +114,11 @@ export default {
           duration: 250 // Approximation of element height
         }).on("enter", function () {
           page.project = component.project
+          // adds back transparency to reveal code
+          divBody.style.backgroundColor = ''
         }).on("leave", function () {
-          page.project = null
+          // removes transparency to hide code
+          divBody.style.backgroundColor = 'var(--primary)'
         })//.addIndicators() // <- Uncomment this to debug triggers
 
         // Add Scene to controller
@@ -128,6 +133,7 @@ export default {
 .div-body {
   /* Makes background transparent to see the code behind */
   background-color: rgba(var(--primary-rgb), 0.7);
+  transition: background-color 0.5s;
 }
 
 .background {
