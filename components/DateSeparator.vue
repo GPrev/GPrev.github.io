@@ -10,8 +10,10 @@ export default {
 
 <style>
 .date-separator {
+  font-size: 2em;
   text-align: left;
   border-bottom: solid 1px var(--secondary);
+  margin-top: 1em;
   padding: 0.25em 0.5em;
   color: var(--secondary);
 }

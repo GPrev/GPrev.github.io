@@ -45,6 +45,7 @@ export default {
 
 .project-picture {
   width: 100px;
+  max-width: 150px;
   height: auto;
   margin-right: 1em;
   border-radius: 1em;

@@ -3,7 +3,7 @@
     <div class="container">
       <div>
         <Logo />
-        <h1 class="title">GPrev's portfolio</h1>
+        <h1 class="title">GPrev<wbr>.getPortfolio()</h1>
         <div class="links">
           <a
             href="https://github.com/Gprev"
@@ -115,7 +115,7 @@ export default {
         }).on("enter", function () {
           page.project = component.project
           // adds back transparency to reveal code
-          divBody.style.backgroundColor = ''
+          divBody.style.backgroundColor = 'rgba(var(--primary-rgb), 0.7)'
         }).on("leave", function () {
           // removes transparency to hide code
           divBody.style.backgroundColor = 'var(--primary)'
@@ -131,8 +131,7 @@ export default {
 
 <style>
 .div-body {
-  /* Makes background transparent to see the code behind */
-  background-color: rgba(var(--primary-rgb), 0.7);
+  /* Adds transition to the background color */
   transition: background-color 0.5s;
 }
 
@@ -156,13 +155,12 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
   color: var(--primary-contrast);
   letter-spacing: 1px;
+  font-size: calc(2vw + 5vh + 2vmin);
 }
 
 .links {
