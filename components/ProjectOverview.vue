@@ -10,7 +10,7 @@
     <div class="project-overview-bottom">
       <img
         class="project-picture"
-        :src="require(`~/assets/images/${project.img}`)"
+        :src="require(`~/assets/images/${project.icon}`)"
         :alt="project.alt"
       />
       <div class="project-details">
