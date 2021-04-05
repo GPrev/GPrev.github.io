@@ -11,8 +11,8 @@ export default {
 <style>
 .date-separator {
   text-align: left;
-  border-bottom: solid 1px var(--secondary-dark);
+  border-bottom: solid 1px var(--secondary);
   padding: 0.25em 0.5em;
-  color: var(--secondary-dark);
+  color: var(--secondary);
 }
 </style>

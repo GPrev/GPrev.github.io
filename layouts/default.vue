@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="div-body">
     <Nuxt />
   </div>
 </template>
@@ -24,42 +24,32 @@ html {
   margin: 0;
 }
 
-.button--green {
+.button {
   display: inline-block;
   border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
   text-decoration: none;
   padding: 10px 30px;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.button:hover {
+  color: var(--primary-contrast);
+  background-color: rgba(var(--secondary-rgb), 0.2);
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.div-body {
+  background-color: var(--primary);
+  z-index: -100;
 }
 
 :root {
-  --primary-dark: #35495e;
-  --primary-medium: #2f495e;
-  --secondary-dark: #3b8070;
-  --secondary-light: #00c58e;
+  --primary: #35495e;
+  --primary-contrast: #e4f0ff;
+  --secondary: #d7a319;
+  --secondary-contrast: #344365;
 
-  --primary-rgb: 47, 73, 94;
-  --secondary-rgb: 59, 128, 112;
+  --primary-rgb: 53, 73, 94;
+  --secondary-rgb: 215, 163, 25;
 }
 </style>

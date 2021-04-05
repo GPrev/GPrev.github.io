@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  props: ['project'],
+  props: ['project']
 }
 </script>
 
@@ -64,12 +64,12 @@ export default {
 
 .project-title {
   text-align: left;
-  color: var(--primary-dark);
+  color: var(--secondary);
   margin-bottom: 0.2em;
 }
 
 .project-description {
   text-align: left;
-  color: var(--primary-medium);
+  color: var(--primary-contrast);
 }
 </style>

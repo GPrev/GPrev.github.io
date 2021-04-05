@@ -3,21 +3,13 @@
     <div class="container">
       <div>
         <Logo />
-        <h1 class="title">gprev-portfolio</h1>
+        <h1 class="title">GPrev's portfolio</h1>
         <div class="links">
           <a
-            href="https://nuxtjs.org/"
+            href="https://github.com/Gprev"
             target="_blank"
             rel="noopener noreferrer"
-            class="button--green"
-          >
-            Documentation
-          </a>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button--grey"
+            class="button"
           >
             GitHub
           </a>
@@ -33,11 +25,15 @@
         <date-separator :date="date" />
         <project-overview
           class="project-overview-item"
+          ref="poi"
           v-for="project in projects"
           :project="project"
           :key="project.slug"
         />
       </div>
+    </div>
+    <div class="background">
+      <nuxt-content :document="project" />
     </div>
   </div>
 </template>
@@ -47,9 +43,14 @@ import ProjectOverview from "~/components/ProjectOverview.vue"
 
 export default {
   components: { ProjectOverview },
+
+  // data () {
+  //   return { project: null }
+  // },
+
   async asyncData ({ $content }) {
     const projects = await $content('project-overview')
-      .only(['title', 'description', 'img', 'alt', 'date', 'video'])
+      //.only(['title', 'description', 'img', 'alt', 'date', 'video'])
       .sortBy('date', 'asc')
       .fetch()
 
@@ -62,13 +63,17 @@ export default {
 
     const projectsGrouped = groupBy(projects, 'date')
 
+    const project = projects[2]
+
     return {
-      projectsGrouped
+      projectsGrouped,
+      project
     }
   },
 
   mounted () {
     this.initVideoPlayTriggers()
+    this.initBackgroundChangeTriggers()
   },
 
   methods: {
@@ -93,12 +98,48 @@ export default {
         // Add Scene to controller
         this.$scrollmagic.addScene(scene)
       });
+    },
+
+    initBackgroundChangeTriggers () {
+      const projectComponents = this.$refs.poi
+      const page = this
+
+      projectComponents.forEach(component => {
+        const element = component.$el
+        // Declare Scene
+        const scene = this.$scrollmagic.scene({
+          triggerElement: element,
+          duration: 250 // Approximation of element height
+        }).on("enter", function () {
+          page.project = component.project
+        }).on("leave", function () {
+          page.project = null
+        })//.addIndicators() // <- Uncomment this to debug triggers
+
+        // Add Scene to controller
+        this.$scrollmagic.addScene(scene)
+      });
     }
   }
 }
 </script>
 
 <style>
+.div-body {
+  /* Makes background transparent to see the code behind */
+  background-color: rgba(var(--primary-rgb), 0.7);
+}
+
+.background {
+  background-color: var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -50;
+  width: 100%;
+  height: 100vh;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -114,20 +155,12 @@ export default {
   display: block;
   font-weight: 300;
   font-size: 100px;
-  color: #35495e;
+  color: var(--primary-contrast);
   letter-spacing: 1px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
 .links {
-  padding-top: 15px;
+  padding-top: 2em;
 }
 
 .project-overview-container {
