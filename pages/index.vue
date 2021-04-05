@@ -66,6 +66,35 @@ export default {
       projectsGrouped
     }
   },
+
+  mounted () {
+    this.initVideoPlayTriggers()
+  },
+
+  methods: {
+    // Sets up a trigger to play videos when in frame, and stop them when out of frame
+    initVideoPlayTriggers () {
+      var projectItems = document.getElementsByClassName("project-video");
+
+      projectItems.forEach(video => {
+        // Declare Scene
+        const scene = this.$scrollmagic.scene({
+          triggerElement: video,
+          duration: 250 // Approximation of video height
+        }).on("enter", function () {
+          // play video
+          video.play();
+        }).on("leave", function () {
+          // stop video
+          video.pause();
+          video.currentTime = 0;
+        })//.addIndicators() // <- Uncomment this to debug triggers
+
+        // Add Scene to controller
+        this.$scrollmagic.addScene(scene)
+      });
+    }
+  }
 }
 </script>
 

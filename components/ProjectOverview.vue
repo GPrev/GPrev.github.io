@@ -4,8 +4,8 @@
       class="project-video"
       v-if="project.video"
       :src="require(`~/assets/video/${project.video}`)"
-      autoplay
       loop
+      muted
     />
     <div class="project-overview-bottom">
       <img
