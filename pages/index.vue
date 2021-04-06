@@ -33,7 +33,18 @@
       </div>
     </div>
     <div class="background">
-      <nuxt-content :document="project" />
+      <div
+        v-for="(projects, date, idx) in projectsGrouped"
+        :key="date"
+        :style='"order: -"+idx'
+      >
+        <nuxt-content
+          v-for="myproject in projects"
+          v-show="project == myproject "
+          :key="myproject.slug"
+          :document="myproject"
+        />
+      </div>
     </div>
   </div>
 </template>
