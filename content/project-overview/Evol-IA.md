@@ -43,30 +43,4 @@ private MctsNode Selection(MctsNode current, int myId)
 
     return current;
 }
-
-// Chooses the best child by UCB
-private MctsNode BestChildUCB(MctsNode current, double C = 1.44)
-{
-    MctsNode bestChild = null;
-    double bestUCB = double.NegativeInfinity;
-
-    foreach (MctsNode child in current.Children)
-    {
-        double myUCB = UCB(child, C);
-
-        if (myUCB > bestUCB)
-        {
-            bestChild = child;
-            bestUCB = myUCB;
-        }
-    }
-
-    return bestChild;
-}
-
-// Evaluates which child node should be expanded. With C=0, evaluates which node should be chosen
-private double UCB(MctsNode n, double C = 1.44)
-{
-    return ((double)n.Value / (double)n.Visits) + C * Math.Sqrt((2.0 * Math.Log((double)totalVisits)) / (double)n.Visits);
-}
 ```

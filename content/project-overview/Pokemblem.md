@@ -44,16 +44,4 @@ public Tuple<int, int> GetHPafter()
     defHP = Math.Max(defHP, 0);
     return new Tuple<int, int>(atkHP, defHP);
 }
-
-public static int GetBaseDamage(Character attacker, Character defender, Move move)
-{
-    int baseDamage;
-
-    if (move.Physical)
-        baseDamage = attacker.Attack + move.Power - defender.Def;
-    else
-        baseDamage = attacker.SpAtk + move.Power - defender.SpDef;
-
-    return baseDamage;
-}
 ```
