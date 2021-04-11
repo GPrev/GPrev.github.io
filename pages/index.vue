@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container first-screen">
+      <!--First div helps center the second div-->
+      <div class="scroll-hint" />
       <div>
         <Logo />
         <h1 class="title">GPrev<wbr>.getPortfolio()</h1>
@@ -14,6 +16,12 @@
             GitHub
           </a>
         </div>
+      </div>
+      <div
+        class="scroll-hint"
+        id="scroll-hint"
+      >
+        Discover my personal projects<br />&#9660;
       </div>
     </div>
     <div class="container project-overview-container">
@@ -78,11 +86,25 @@ export default {
   },
 
   mounted () {
+    this.initScrollHintTrigger()
     this.initVideoPlayTriggers()
     this.initBackgroundChangeTriggers()
   },
 
   methods: {
+    initScrollHintTrigger () {
+      // Declare Scene
+      var scene = this.$scrollmagic.scene({
+        triggerElement: "#scroll-hint",
+        triggerHook: 0.85,
+        duration: 250
+      })
+        .setTween("#scroll-hint", 0.5, { opacity: "0" })
+      //.addIndicators({ name: "scroll-hint" }); // <- Uncomment this to debug triggers
+      // Add Scene to controller
+      this.$scrollmagic.addScene(scene)
+    },
+
     // Sets up a trigger to play videos when in frame, and stop them when out of frame
     initVideoPlayTriggers () {
       var projectItems = document.getElementsByClassName("project-video");
@@ -160,6 +182,11 @@ export default {
   text-align: center;
 }
 
+.first-screen {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .title {
   display: block;
   font-weight: 300;
@@ -171,6 +198,14 @@ export default {
 
 .links {
   padding-top: 2em;
+}
+
+.scroll-hint {
+  color: var(--primary-contrast);
+  opacity: 0.8;
+  height: 3em;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .project-overview-container {
