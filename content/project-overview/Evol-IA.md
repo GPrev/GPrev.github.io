@@ -1,5 +1,6 @@
 ---
 title: Evol-IA
+technos: C#, WPF
 description: A school project about applying artificial intelligennce to real life examples. With a fellow student, we developed an AI that can play a simplified version of Pokemon battles using Monte Carlo Tree Search, and chose a good team using a Genetic Algorithm.
 icon: pokeball.png
 video: EvolIA-Presentation.mp4

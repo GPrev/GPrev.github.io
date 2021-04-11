@@ -50,6 +50,7 @@ html {
   --secondary-contrast: #344365;
 
   --primary-rgb: 53, 73, 94;
+  --primary-contrast-rgb: 228, 240, 255;
   --secondary-rgb: 215, 163, 25;
 }
 </style>

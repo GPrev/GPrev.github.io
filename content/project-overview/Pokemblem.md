@@ -1,5 +1,6 @@
 ---
 title: Pokemblem
+technos: C#, Monogame
 description: This project is a game inspired by Pokemon and Fire Emblem. It is a tactical RPG, played on an orthogonal grid. A first level, complete with cutscenes and a tutorial, was developed.
 icon: MonoGame_Logo.png
 alt: Pokemblem

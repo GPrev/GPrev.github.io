@@ -1,5 +1,6 @@
 ---
 title: WindowedCoder
+technos: C++, Qt
 description: This project was my introduction to coding after a friend taught me the basis of C++ and Qt. The goal of this program is to create and manage simple monoalphabetic cyphers, that could be used to encode and decode messages.
 icon: qt.jpg
 alt: WindowedCoder

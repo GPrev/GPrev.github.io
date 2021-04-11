@@ -14,7 +14,13 @@
         :alt="project.alt"
       />
       <div class="project-details">
-        <h3 class="project-title">{{ project.title }}</h3>
+        <div class="project-header">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p
+            class="project-technos"
+            v-show="!isNarrow"
+          >{{ project.technos }}</p>
+        </div>
         <p class="project-description">{{ project.description }}</p>
       </div>
     </div>
@@ -22,8 +28,11 @@
 </template>
 
 <script>
+import responsive from "~/mixins/responsive.js"
+
 export default {
-  props: ['project']
+  props: ['project'],
+  mixins: [responsive],
 }
 </script>
 
@@ -63,10 +72,22 @@ export default {
   justify-content: center;
 }
 
+.project-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 0.2em;
+}
+
 .project-title {
   text-align: left;
   color: var(--secondary);
-  margin-bottom: 0.2em;
+}
+
+.project-technos {
+  text-align: right;
+  color: rgba(var(--primary-contrast-rgb), 0.4);
 }
 
 .project-description {
